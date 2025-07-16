@@ -6,7 +6,6 @@ import java.util.Random;
 public class D1_LottoGame {
     private int[] numbers; // 로또 번호 6개 저장 배열
 
-    // 생성자: 중복 없는 로또 번호 생성
     public D1_LottoGame() {
         this.numbers = new int[6];
         Random r = new Random();
@@ -32,7 +31,6 @@ public class D1_LottoGame {
         Arrays.sort(this.numbers); // 정렬
     }
 
-    // 번호 출력
     public void print() {
         for (int n : this.numbers) {
             System.out.print(n + " ");
@@ -40,7 +38,6 @@ public class D1_LottoGame {
         System.out.println();
     }
 
-    // 당첨 번호와 일치하는 개수 반환
     public int getMatchCount(int[] winning) {
         int match = 0;
         for (int n : this.numbers) {
@@ -53,8 +50,19 @@ public class D1_LottoGame {
         return match;
     }
 
-    // 로또 번호 반환
     public int[] getNumbers() {
         return this.numbers;
+    }
+
+    // 등수 계산 메서드 (main에서 옮김)
+    public static int getRank(int match) {
+        return switch (match) {
+            case 6 -> 1;
+            case 5 -> 2;
+            case 4 -> 3;
+            case 3 -> 4;
+            case 2 -> 5;
+            default -> 0;
+        };
     }
 }
