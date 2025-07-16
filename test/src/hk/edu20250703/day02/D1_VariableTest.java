@@ -1,0 +1,39 @@
+package hk.edu20250703.day02;
+
+public class D1_VariableTest {
+
+	public static void main(String[] args) {
+
+		//기본타입의 정수
+		
+		//1. 정수타입
+		//	기본형은 int
+		
+		byte b = 1;								//	-128~127 숫자를 표현
+		   //b = 128;							2byte의 크기
+		short sh = 128; 						//2byte의 크기
+		int i = 500000000;						//int 4byte의 크기
+		long l = 5000000000L;					//리터럴 값에 L을 붙여주면 long타입으로 정의됨
+		
+		//2. 실수타입
+		//	기본형은 double
+		
+		double d = 15.8;
+		float f = (float)10.2;
+		float ff = 10.2f;
+		float fff = (float)(d + f);
+		
+		//3. 정수타입
+		
+		int ii = (int)(i+d);					//double + double --> int형 변환
+		double dd = i+d;						//
+		int iii = (int)dd;						//정수로 변환하면 소수점 제거됨
+		
+		//4. 정수끼리 연산
+		
+		byte b1 = 10;
+		byte b2 = 20;
+		byte b3 = (byte)(b1 + b2);				//byte끼리 연산해도 int형으로 변환
+	}
+
+}
