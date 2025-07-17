@@ -1,5 +1,7 @@
 package hk.edu20250716.day10;
 
+import java.util.Calendar;
+
 public class D2_Calendar {
 	
 	private static final int[] leap = {31,29,31,30,31,30,31,31,30,31,30,31};	// 윤년
@@ -74,7 +76,7 @@ public class D2_Calendar {
 			System.out.print(i + "\t");
 			
 			// 코드작성 : 토요일을 확인하는 조건
-			if ((dayOfWeek + i - 1) % 7 == 6) {
+			if ((dayOfWeek + i) % 7 == 0) {
 				System.out.println();
 			}
 		}
@@ -92,6 +94,18 @@ public class D2_Calendar {
 	// 나의 살아온 날 구하기
 	public int daysLived(int birthYear, int birthMonth, int birthDate, int todayYear, int todayMonth, int todayDate) {
 		return dates(todayYear, todayMonth, todayDate) - dates(birthYear, birthMonth, birthDate);
+	}
+	
+	
+	// API 사용해서 구현하기
+	public void calendarApiPrint(int year, int month) {
+		Calendar cal = Calendar.getInstance();
+		System.out.println(cal.get(Calendar.DATE));
+		
+		cal.set(year, month - 1, 1);
+		int lastDay = cal.getActualMaximum(Calendar.DAY_OF_MONTH);
+		int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+		System.out.println(dayOfWeek);
 	}
 	
 	public static void main(String[] args) {
