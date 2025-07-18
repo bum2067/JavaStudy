@@ -19,3 +19,4 @@ public class D3_MagicSquareMain {
 	}
 
 }
+
