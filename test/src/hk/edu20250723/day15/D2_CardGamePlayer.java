@@ -28,4 +28,6 @@ public class D2_CardGamePlayer {
 	public List<D2_Card> getHand() {	// 카드 리스트 반환 --> Card에서 가져올 수 있도록
 		return hand;
 	}
+	
+	// 3장
 }
