@@ -33,9 +33,9 @@ public class Card_Divide {
                 deck.add(new Card(suit, rank));
             }
         }
-        Collections.shuffle(deck);
+        Collections.shuffle(deck);		// 카드섞기
 
-        Map<String, List<Card>> playerMap = new HashMap<>();
+        Map<String, List<Card>> playerMap = new HashMap<>();	// 플레이어 이름 = 키 -> 카드 리스트 저장하는 맵 생성
         for (int i = 1; i <= playerCount; i++) {
             List<Card> hand = new ArrayList<>();
             for (int j = 0; j < cardsPerPlayer; j++) {

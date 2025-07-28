@@ -28,9 +28,9 @@ public class BettingRoundHandler {
                 int betAmount = 0;
 
                 switch (choice) {
-                    case 1 -> betAmount = balance / 4;
-                    case 2 -> betAmount = balance / 2;
-                    case 3 -> betAmount = balance;
+                    case 1 -> betAmount = balance / 4;		// 쿼터
+                    case 2 -> betAmount = balance / 2;		// 하트
+                    case 3 -> betAmount = balance;			// 올인
                     case 4 -> {
                         System.out.println("다이 선택. 탈락합니다.");
                         iter.remove();

@@ -13,7 +13,7 @@ public class Card implements Comparable<Card> {
     private String suit;  // 문양
     private String rank;  // 숫자 or 문자
 
-    // 무작위 카드 생성
+    // 무작위 카드 생성 (랜덤함수)
     public Card() {
         int a = (int)(Math.random() * DECK.length);
         int b = (int)(Math.random() * STECK.length);
@@ -35,9 +35,9 @@ public class Card implements Comparable<Card> {
         return rank;
     }
 
-    /**
-     * rank를 정수값으로 변환 (A=14, K=13, ... 2=2)
-     */
+    
+    // rank를 정수값으로 변환 (A=14, K=13, ... 2=2)
+     
     public int getRankValue() {
         return switch (rank) {
             case "A" -> 14;
@@ -48,24 +48,23 @@ public class Card implements Comparable<Card> {
         };
     }
 
-    /**
-     * 문양이 같은지 비교
-     */
+     // 문양이 같은지 비교
+    
     public boolean isSameSuit(Card other) {
         return this.suit.equals(other.suit);
     }
 
-    /**
-     * 카드 크기 비교 (rank 기준)
-     */
+
+     // 카드 크기 비교 (rank 기준)
+
     @Override
     public int compareTo(Card other) {
         return Integer.compare(this.getRankValue(), other.getRankValue());
     }
 
-    /**
-     * 카드 출력: [♠ K]
-     */
+    
+     // 카드 출력: ex) [♠ K]
+     
     @Override
     public String toString() {
         // rank 정렬: 1글자는 뒤에 공백 추가, 10은 그대로
@@ -74,9 +73,9 @@ public class Card implements Comparable<Card> {
     }
 
 
-    /**
-     * 동일한 문양 + 숫자일 경우 같은 카드로 간주
-     */
+    
+     // 동일한 문양 + 숫자일 경우 같은 카드로 간주
+     
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -90,3 +89,4 @@ public class Card implements Comparable<Card> {
         return Objects.hash(suit, rank);
     }
 }
+

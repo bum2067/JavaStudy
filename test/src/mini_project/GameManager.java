@@ -11,7 +11,7 @@ public class GameManager {
 
     public void play() {
         deck = new CardCase();
-        initPlayers();
+        initPlayers();			
         dealInitialCards();
         discardAndReveal();
 //      reorderPlayers();
@@ -21,11 +21,11 @@ public class GameManager {
         announceWinner(winner);
     }
 
-    private void initPlayers() {
+    private void initPlayers() {		// 플레이어 수 입력받기 및 플레이어 생성
         int playerCount = 0;
         while (playerCount < 2 || playerCount > 7) {
             System.out.print("플레이어 수를 입력하세요 (2~7): ");
-            try {
+            try {													// 예외처리
                 playerCount = Integer.parseInt(sc.nextLine());
                 if (playerCount < 2 || playerCount > 7)
                     System.out.println("⚠ 2명 이상 7명 이하만 가능합니다.");
@@ -40,12 +40,12 @@ public class GameManager {
         }
     }
 
-    private void dealInitialCards() {
+    private void dealInitialCards() {		// 플레이어에게 카드를 분배 및 버릴 카드 선택
         for (Card_Player p : players) {
             for (int i = 0; i < 4; i++) p.receiveCard(deck.drawCard());
         }
 
-        for (Card_Player p : players) {
+        for (Card_Player p : players) {		// 향상된 for문 사용
             CardPrinter.clearScreen();
             System.out.println(p.getName() + "의 초기 카드:");
             printer.printCards(p, p);
@@ -55,7 +55,7 @@ public class GameManager {
         }
     }
 
-    private void discardAndReveal() {
+    private void discardAndReveal() {		// 카드를 공개 및 플레이어 순서 지정
         Map<Card_Player, Card> openCards = new HashMap<>();
         for (Card_Player p : players) {
             CardPrinter.clearScreen();
@@ -66,7 +66,7 @@ public class GameManager {
             openCards.put(p, p.getHand().get(openIndex));
         }
 
-        players.sort((a, b) -> {
+        players.sort((a, b) -> {		// 람다식 사용, sort 함수 -> 리스트 정렬
             Card ca = openCards.get(a), cb = openCards.get(b);
             return Integer.compare(
                 PokerHandEvaluator.rankToInt(cb.getRank()),
@@ -75,7 +75,7 @@ public class GameManager {
         });
     }
 
-    private void dealAdditionalCards() {
+    private void dealAdditionalCards() {		// 카드를 추가로 나눠주고 라운드마다 베팅 수행
         for (Card_Player p : players)
             p.receiveCard(deck.drawCard());
         for (Card_Player p : players)
@@ -95,7 +95,7 @@ public class GameManager {
         players = bettingHandler.bettingRound(sc, players, 7);
     }
 
-    private Card_Player determineWinner() {
+    private Card_Player determineWinner() {		// 우승 플레이어 결정
         CardPrinter.clearScreen();
         Card_Player winner = null;
         PokerHandEvaluator.HandResult best = null;
