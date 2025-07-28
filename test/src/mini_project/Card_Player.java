@@ -13,9 +13,13 @@ public class Card_Player {
     private Card openCard;               // 공개된 카드
     private Card discardedCard;          // 버린 카드
     private int score = -1;              // 족보 점수 저장 (선택)
+    
+    private BettingSystem bettingSystem;
 
     public Card_Player(String name) {
         this.name = name;
+        this.hand = new ArrayList<>();
+        this.bettingSystem = new BettingSystem(1000000);
     }
 
     //카드 받기 (최대 7장까지)
@@ -87,4 +91,9 @@ public class Card_Player {
     public Card getDiscardedCard() {
         return discardedCard;
     }
+    
+    public BettingSystem getBettingSystem() {
+        return bettingSystem;
+    }
+
 }

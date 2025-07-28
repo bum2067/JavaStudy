@@ -64,6 +64,4 @@ public class CardCase {
 	        return drawn;
 	    }
 
-
-
 }
