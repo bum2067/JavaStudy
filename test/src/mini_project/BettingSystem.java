@@ -22,11 +22,11 @@ public class BettingSystem {
     // 베팅 수행
     public boolean placeBet(int amount) {
         if (amount <= balance) {
-            balance -= amount;
-            currentBet += amount;
+            balance -= amount;		// 잔액에서 베팅금 차감
+            currentBet += amount;	// 누적 베팅 금액
             return true;
         }
-        return false;
+        return false;		// 베팅 불가시
     }
 
     // 승리 시 상금 획득

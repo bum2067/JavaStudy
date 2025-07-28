@@ -16,7 +16,7 @@ public class Card_Player {
     
     private BettingSystem bettingSystem;
 
-    public Card_Player(String name) {
+    public Card_Player(String name) {		// 플레이어의 이름과 각 플레이어당 고정금액 분배
         this.name = name;
         this.hand = new ArrayList<>();
         this.bettingSystem = new BettingSystem(1000000);

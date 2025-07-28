@@ -13,7 +13,7 @@ public class CardCase {
 	    public CardCase() {
 	        cards = new ArrayList<>();
 	        initDeck();
-	        Collections.shuffle(cards);  // 셔플!
+	        Collections.shuffle(cards);  // 카드를 섞음
 	    }
 
 	    // 52장 카드 덱 생성 (중복 없이)
