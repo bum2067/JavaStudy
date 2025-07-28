@@ -190,7 +190,8 @@ public class PokerHandEvaluator {
 
     private static boolean isStraight(List<Integer> ranks) {
         Set<Integer> set = new HashSet<>(ranks);
-        if (set.containsAll(List.of(14, 2, 3, 4, 5))) return true;
+        if (set.containsAll(List.of(14, 2, 3, 4, 5))) 
+        	return true;
 
         int consecutive = 1;
         int last = -1;
